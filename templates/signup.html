@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up</title>
+    <link rel="stylesheet" href="static/styles.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-left">
+            <img src="/static/Euphrix%20Sync2.jpeg" alt="Logo" class="nav-logo">
+            <div class="nav-title">Euphorix Sync</div>
+        </div>
+        <ul class="nav-links">
+            <li><a href="/login">Login</a></li>
+            <li><a href="/signup">Sign Up</a></li>
+        </ul>
+    </nav>
+    
+    <div class="auth-container">
+        <div class="auth-card">
+            <h2>Sign Up</h2>
+            {% with messages = get_flashed_messages() %}
+            {% if messages %}
+                <ul class="flashes">
+                    {% for message in messages %}
+                        <li>{{ message }}</li>
+                    {% endfor %}
+                </ul>
+            {% endif %}
+        {% endwith %}
+            <form method="POST">
+                <label for="username">Username:</label>
+                <input type="text" name="username" required>
+                <br>
+                <label for="password">Password:</label>
+                <input type="password" name="password" required>
+                <br>
+                <button type="submit">Sign Up</button>
+            </form>
+            <p>Already have an account? <a href="{{ url_for('login') }}">Log in</a></p>
+        </div>
+    </div>
+</body>
+</html>
